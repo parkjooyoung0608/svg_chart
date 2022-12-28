@@ -37,7 +37,8 @@ document.addEventListener("mousemove", (e) => {
 
     if (
       i === 1 &&
-      windowX +
+      7 +
+        windowX +
         document
           .querySelector(".graph_content li:nth-child(1)")
           .getBoundingClientRect().left <
@@ -51,7 +52,8 @@ document.addEventListener("mousemove", (e) => {
       li.classList.add("hover");
     } else if (
       i > 1 &&
-      windowX +
+      7 +
+        windowX +
         document
           .querySelector(`.graph_content li:nth-child(${i - 1})`)
           .getBoundingClientRect().right <
