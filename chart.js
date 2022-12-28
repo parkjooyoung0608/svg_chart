@@ -1,16 +1,18 @@
 const CHART_DATA_Y = [80, 75, 62, 85, 55, 90, 78, 20, 74, 66];
-const CHART_DATA_X = [0, 57, 114, 171, 228, 285, 342, 399, 456, 513];
+const X_WIDTH = 57;
 const chartPointAll = document.querySelectorAll(".graph_point");
+const graphContentAll = document.querySelectorAll(".graph_content > li");
 
 let chartData = "";
 
 chartPointAll.forEach((chartPoint, i) => {
+  console.log(i * X_WIDTH);
   chartPoint.style.bottom = `${CHART_DATA_Y[i]}%`;
   chartPoint
     .closest("li")
     .querySelector(".graph_des > .graph_des_content > strong").innerText =
     CHART_DATA_Y[i];
-  chartData += `${CHART_DATA_X[i]},${CHART_DATA_Y[i] * 2} `;
+  chartData += `${i * X_WIDTH},${CHART_DATA_Y[i] * 2} `;
 });
 
 document.querySelector("svg polyline").setAttribute("points", chartData);
@@ -31,7 +33,6 @@ document.addEventListener("mousemove", (e) => {
   const graphBottom = windowY + graph.getBoundingClientRect().bottom;
   const graphTopBottomArea = mouseY > graphTop && mouseY < graphBottom;
 
-  const graphContentAll = document.querySelectorAll(".graph_content > li");
   for (let i = 0; i < graphContentAll.length; i++) {
     let li = document.querySelector(`.graph_content li:nth-child(${i + 1})`);
 
