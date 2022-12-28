@@ -14,3 +14,8 @@ chartPointAll.forEach((chartPoint, i) => {
 });
 
 document.querySelector("svg polyline").setAttribute("points", chartData);
+
+const graphDesPosition = document.querySelectorAll(".graph_des");
+graphDesPosition.forEach((item, i) => {
+  item.style.bottom = `${CHART_DATA_Y[i]}%`;
+});
