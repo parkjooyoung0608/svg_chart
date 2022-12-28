@@ -10,4 +10,7 @@ chartPointAll.forEach((chartPoint, i) => {
     .closest("li")
     .querySelector(".graph_des > .graph_des_content > strong").innerText =
     CHART_DATA_Y[i];
+  chartData += `${CHART_DATA_X[i]},${CHART_DATA_Y[i] * 2} `;
 });
+
+document.querySelector("svg polyline").setAttribute("points", chartData);
