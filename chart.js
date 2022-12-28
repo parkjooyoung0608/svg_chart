@@ -6,4 +6,8 @@ let chartData = "";
 
 chartPointAll.forEach((chartPoint, i) => {
   chartPoint.style.bottom = `${CHART_DATA_Y[i]}%`;
+  chartPoint
+    .closest("li")
+    .querySelector(".graph_des > .graph_des_content > strong").innerText =
+    CHART_DATA_Y[i];
 });
